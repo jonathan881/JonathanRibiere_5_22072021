@@ -1,11 +1,12 @@
 {
   "name": "orinoco",
   "version": "1.0.0",
-  "description": "Orinoco, une entreprise de commerce en ligne. ",
+  "description": "Orinoco, une entreprise de commerce en ligne.",
   "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./css/style.scss:./css/style.css",
     "build": "webpack",
     "start": "webpack serve"
   },
