@@ -1,16 +1,5 @@
-import retrieveContent from "./query.js";
+const img = document.getElementById("img");
 
-async function showContent() {
-  try {
-    const content = await retrieveContent();
-
-    let elt = document.createElement("div");
-    elt.innerHTML = content.join("<br />");
-
-    document.getElementsByTagName("body")[0].appendChild(elt);
-  } catch (e) {
-    console.log("Error", e);
-  }
-}
-
-showContent();
+fetch("http://localhost:3000/api/cameras")
+  .then((response) => response.json())
+  .then((data) => (img.src = data[0].imageUrl));
