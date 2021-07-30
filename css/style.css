@@ -1,5 +1,24 @@
+body {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem; }
+
+#titrePage {
+  margin-left: 5%; }
+
+main {
+  width: 100%; }
+
 #fiche {
-  border: 2px black; }
+  border: 2px solid black;
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  border: 0%;
+  margin-bottom: 20px; }
   #fiche_titre {
     text-transform: capitalize;
     margin-top: 0; }
@@ -9,7 +28,8 @@
     margin-top: 2px; }
 
 #img1 {
-  width: 200px;
-  height: 165px; }
+  width: 100%;
+  height: 165px;
+  object-fit: cover; }
 
 /*# sourceMappingURL=style.css.map */

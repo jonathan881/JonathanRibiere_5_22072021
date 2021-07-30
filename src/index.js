@@ -29,6 +29,9 @@ function displayArticle(article) {
   cloneElt.getElementById("fiche_body").textContent =
     window.top.article.description;
   cloneElt.getElementById("fiche_prix").textContent = window.top.article.price;
+  cloneElt.getElementById(
+    "produit_lien"
+  ).href += `?id=${window.top.article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);
 }
