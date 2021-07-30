@@ -24,11 +24,11 @@ function displayArticle(article) {
   const templateElt = document.getElementById("templateArticle");
   const cloneElt = document.importNode(templateElt.content, true);
 
-  cloneElt.getElementById("fiche_titre").textContent = content.article.name;
+  cloneElt.getElementById("img1").src = window.top.article.imageUrl;
+  cloneElt.getElementById("fiche_titre").textContent = window.top.article.name;
   cloneElt.getElementById("fiche_body").textContent =
-    content.article.description;
-  cloneElt.getElementById("fiche_prix").textContent = content.article.price;
-  cloneElt.getElementById("img1").textContent = content.article.imageUrl;
+    window.top.article.description;
+  cloneElt.getElementById("fiche_prix").textContent = window.top.article.price;
 
   document.getElementById("main").appendChild(cloneElt);
 }

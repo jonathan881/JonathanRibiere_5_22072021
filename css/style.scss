@@ -1,7 +1,5 @@
 #fiche {
-  border: 2px solid black;
-}
-.fiche {
+  border: 2px black;
   &_titre {
     text-transform: capitalize;
     margin-top: 0;
@@ -12,4 +10,8 @@
   &_btn {
     margin-top: 2px;
   }
+}
+#img1 {
+  width: 200px;
+  height: 165px;
 }
