@@ -1,5 +1,12 @@
-#img {
-  width: 150px;
-  height: 150px; }
+#fiche {
+  border: 2px solid black; }
+
+.fiche_titre {
+  text-transform: capitalize;
+  margin-top: 0; }
+.fiche_body {
+  margin-bottom: 0; }
+.fiche_btn {
+  margin-top: 2px; }
 
 /*# sourceMappingURL=style.css.map */

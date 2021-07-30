@@ -2,12 +2,31 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Orinoco</title>
   </head>
+
   <body>
-    <h1 id="erreur!"></h1>
-    <img src="" id="img" />
+    <header>
+      <div id="header">
+        <p id="titrePage">ORINOCO</p>
+      </div>
+    </header>
+    <main id="main">
+      <template id="templateArticle">
+        <article id="fiche">
+          <img id="img1" src="#" alt="" />
+          <h2 id="fiche_titre">TITRE</h2>
+          <p id="fiche_body">CONTENU</p>
+          <p id="fiche_prix">PRIX</p>
+          <button id="fiche__btn">Commandez</button>
+        </article>
+      </template>
+    </main>
+
+    <!--Les fichier JS doivent toujours etre lu en dernier-->
     <script src="./src/index.js"></script>
     <script src="./polyfill.bundle.js"></script>
     <script src="./app.bundle.js"></script>

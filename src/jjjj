@@ -1,0 +1,41 @@
+/*const result = document.getElementById("item_list");
+let items = [];
+
+async function fetchItem() {
+  await fetch("http://localhost:3000/api/cameras")
+    .then((res) => res.json())
+    .then((data) => (items = data));
+
+  console.log(items);
+  
+}
+
+//function itemsDisplay() {
+  //result.innerHTML = data.map(
+    //(items) =>
+      //`
+//<h2>${data.name}<h2>
+//`
+
+  //);
+//}
+
+//fetchItem();*/
+let fiche = document.querySelector(".ficheArticle");
+async function fetchItem() {
+  await fetch("http://localhost:3000/api/cameras")
+    .then((res) => res.json())
+    .then((data) => (items = data));
+  })
+  .catch(function (err) {
+    // Une erreur est survenue
+    alert("serveur Hors service");
+  });
+
+function afficherFiche(response) {
+  // boucle de clonage de carte html et association parent
+
+  for (let i = 0; i < data.length; i++) {
+    const element = array[index];
+  }
+}

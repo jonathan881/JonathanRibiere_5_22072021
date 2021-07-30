@@ -1,4 +1,15 @@
-#img {
-  width: 150px;
-  height: 150px;
+#fiche {
+  border: 2px solid black;
+}
+.fiche {
+  &_titre {
+    text-transform: capitalize;
+    margin-top: 0;
+  }
+  &_body {
+    margin-bottom: 0;
+  }
+  &_btn {
+    margin-top: 2px;
+  }
 }
