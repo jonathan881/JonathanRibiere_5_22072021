@@ -30,25 +30,40 @@ header {
 
 main {
   width: 100%;
-  margin-top: 50px; }
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
 
 #fiche {
   border: 1px solid black;
-  width: 90%;
-  margin-left: 5%;
+  width: 40%;
   height: auto;
   border: 0%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background-color: #efece8;
   box-shadow: 4px 4px 6px #aaa;
   border-radius: 15px; }
   #fiche_titre {
     text-transform: capitalize;
-    margin-top: 0; }
+    margin-top: 10px; }
   #fiche_body {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    width: 90%;
+    margin-left: 5%; }
   #fiche_btn {
     margin-top: 2px; }
+
+.btnIndex {
+  border: 2px solid teal;
+  width: 40%;
+  margin-left: 30%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background: #c69b6d;
+  border-radius: 10px; }
 
 #img1 {
   width: 100%;
@@ -58,6 +73,6 @@ main {
 
 #produit_lien {
   text-decoration: none;
-  border: 2px solid teal; }
+  color: #1d2528; }
 
 /*# sourceMappingURL=style.css.map */
