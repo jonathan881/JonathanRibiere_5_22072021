@@ -1,3 +1,5 @@
+// Partie page " Produit "
+
 (async function () {
   const articleId = getArticleId();
   const article = await getArticle(articleId);
@@ -28,4 +30,27 @@ function hydrateArticle(article) {
   document.getElementById("fiche_lenses").textContent = article.lenses;
   document.getElementById("fiche_body").textContent = article.description;
   document.getElementById("fiche_prix").textContent = article.price;
+}
+
+//--------------Local Storage -------------------------
+//-----Stocker la récupération des valeurs du formulaire dans localStorage--
+
+/* Déclaration de la variable "produitEnregistreDansLocalStorage" dans laquelle on
+ mets les key et les values qui sont dans localStorage */
+
+let produitEnregistreDansLocalStorage = JSON.parse(
+  localStorage.getItem("produit")
+);
+// Json.parse c'est pour convertir les données au format JSON qui sont dans le localStorage en object JS
+
+console.log(produitEnregistreDansLocalStorage);
+
+//S'il y a deja des produit enregistrés dans le localStorage
+if (produitEnregistreDansLocalStorage) {
+}
+// Si il n'y a pas de produits dans le LocalStorage
+else {
+  produitEnregistreDansLocalStorage = [];
+  produitEnregistreDansLocalStorage.push(hydrateArticle);
+  console.log(produitEnregistreDansLocalStorage);
 }

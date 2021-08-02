@@ -3,8 +3,8 @@ main();
 async function main() {
   const articles = await getArticles();
   console.log(articles);
-  for (article of articles) {
-    displayArticle(articles);
+  for (let i = 0; i < articles.length; i++) {
+    displayArticle(articles[i]);
   }
 }
 function getArticles() {
@@ -24,14 +24,12 @@ function displayArticle(article) {
   const templateElt = document.getElementById("templateArticle");
   const cloneElt = document.importNode(templateElt.content, true);
 
-  cloneElt.getElementById("img1").src = window.top.article.imageUrl;
-  cloneElt.getElementById("fiche_titre").textContent = window.top.article.name;
-  cloneElt.getElementById("fiche_body").textContent =
-    window.top.article.description;
-  cloneElt.getElementById("fiche_prix").textContent = window.top.article.price;
-  cloneElt.getElementById(
-    "produit_lien"
-  ).href += `?id=${window.top.article._id}`;
+  cloneElt.getElementById("img1").src = article.imageUrl;
+  cloneElt.getElementById("fiche_titre").textContent = article.name;
+  cloneElt.getElementById("fiche_body").textContent = article.description;
+  cloneElt.getElementById("fiche_prix").textContent = article.price;
+  cloneElt.getElementById("produit_lien").href += `?id=${article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);
+  console.log(article);
 }
