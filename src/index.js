@@ -25,9 +25,12 @@ function displayArticle(article) {
   const cloneElt = document.importNode(templateElt.content, true);
 
   cloneElt.getElementById("img1").src = article.imageUrl;
-  cloneElt.getElementById("fiche_titre").textContent = article.name;
+  cloneElt.getElementById("fiche_titre").textContent =
+    "Modèle: " + article.name;
+  //cloneElt.getElementById("optionProduit").textContent = article.lenses;
   cloneElt.getElementById("fiche_body").textContent = article.description;
-  cloneElt.getElementById("fiche_prix").textContent = article.price;
+  cloneElt.getElementById("fiche_prix").textContent =
+    "Prix: " + article.price / 1000 + "€";
   cloneElt.getElementById("produit_lien").href += `?id=${article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);

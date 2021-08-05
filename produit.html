@@ -13,16 +13,24 @@
         <p id="titrePage">ORINOCO</p>
       </div>
       <a href="http://localhost:8080/">Retour page acceuil</a>
+      <a href="./panier.html">Panier</a>
     </header>
     <main id="main">
       <article id="fiche">
         <img id="img1" src="#" alt="image" />
         <h2 id="fiche_titre">TITRE</h2>
-        <p id="fiche_lenses">LENSES</p>
+        <form>
+          <label for="optionProduit"> Choisir l'option :</label>
+          <select name="optionLenses" id="optionLenses">
+            <option value="choix1" id="option1">choix1</option>
+          </select>
+        </form>
         <p id="fiche_body">CONTENU</p>
         <p id="fiche_prix">PRIX</p>
 
-        <button id="fiche__btn">Commandez</button>
+        <button id="btnEnvoyer" type="submit" name="btnEnvoyer">
+          Ajoutez l'article au panier
+        </button>
       </article>
     </main>
     <script src="./src/produit.js"></script>
