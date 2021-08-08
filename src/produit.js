@@ -33,26 +33,12 @@ function hydrateArticle(article) {
   document.getElementById("fiche_body").textContent = article.description;
   document.getElementById("fiche_prix").textContent =
     "Prix: " + article.price / 1000 + "€";
-  document.getElementById("option1").textContent = article.lenses;
-  console.log(option1);
+  //document.getElementById("optionLenses").article = article.lenses.value;
+  //console.log(optionLenses);
 }
-//Le formulaire s'adapte au nombre d'option qu'il y a dans l'objet du produit
-//const optionLenses = document.querySelector("#optionProduit");
-const optionLenses = document.querySelector("#optionLenses");
-
-let structureOptionsLenses = [];
-console.log(optionLenses);
-
-// La boucle for pour afficher toutes les option du produit
-/*for (let j = 0; j < option1.length; j++) {
-  structureOptionsLenses =
-    structureOptionsLenses +
-    `
-    document.getElementById("option1").textContent = article.lenses
-  `;
-}
-console.log(structureOptionsLenses);*/
-// la gestion du panier
+//const lenses = document.querySelector("#optionLenses");
+//console.log(lenses);
+//------------------la gestion du panier
 
 // Séléction du boutton "Ajoutez l'article au panier"
 const btnEnvoyerPanier = document.querySelector("#btnEnvoyer");
@@ -61,33 +47,63 @@ const btnEnvoyerPanier = document.querySelector("#btnEnvoyer");
 btnEnvoyerPanier.addEventListener("click", (event) => {
   event.preventDefault();
 
+  //Mettre le choix de l'utilisateur dans une variable
+  const idForm = document.querySelector("#optionLenses");
+  const choixForm = idForm.value;
+  console.log(choixForm);
+
   // Récuperation des valeurs du formulaire
   let infoProduit = {
-    fiche_titre: document.querySelector("#fiche_titre"),
-    option: document.querySelector("#option1"),
-    fiche_prix: document.querySelector("#fiche_prix"),
+    fiche_titre: document.getElementById("fiche_titre").textContent,
+    option: choixForm,
+    prix: document.getElementById("fiche_prix").textContent,
   };
   console.log(infoProduit);
-});
-//--------------Local Storage -------------------------
-//-----Stocker la récupération des valeurs du formulaire dans localStorage--
+  //--------------Local Storage -------------------------
+  //-----Stocker la récupération des valeurs du formulaire dans localStorage--
 
-/* Déclaration de la variable "produitEnregistreDansLocalStorage" dans laquelle on
+  /* Déclaration de la variable "produitEnregistreDansLocalStorage" dans laquelle on
  mets les key et les values qui sont dans localStorage */
+  let produitEnregistreDansLocalStorage = JSON.parse(
+    localStorage.getItem("infoProduit")
+  );
+  // Json.parse c'est pour convertir les données au format JSON qui sont dans
+  // le localStorage en object JS
 
-/*let produitEnregistreDansLocalStorage = JSON.parse(
-  localStorage.getItem("produit")
-);
-// Json.parse c'est pour convertir les données au format JSON qui sont dans le localStorage en object JS
-
-console.log(produitEnregistreDansLocalStorage);
-
-//S'il y a deja des produit enregistrés dans le localStorage
-if (produitEnregistreDansLocalStorage) {
-}
-// Si il n'y a pas de produits dans le LocalStorage
-else {
-  produitEnregistreDansLocalStorage = [];
-  produitEnregistreDansLocalStorage.push(hydrateArticle);
   console.log(produitEnregistreDansLocalStorage);
-}*/
+  //Fonction fenetre pop up
+  const popupConfirmation = () => {
+    if (
+      window.confirm(
+        `${
+          document.getElementById("fiche_titre").textContent
+        } option: ${choixForm} a bien été ajouter au panier.
+        Consultez le panier Ok ou revenir a l'acceuil ANNULER`
+      )
+    ) {
+      window.location.href = "./panier.html";
+    } else {
+      window.location.href = "./index.html";
+    }
+  };
+  //S'il y a deja des produit enregistrés dans le localStorage
+  if (produitEnregistreDansLocalStorage) {
+    produitEnregistreDansLocalStorage.push(infoProduit);
+    localStorage.setItem(
+      "produitStorage",
+      JSON.stringify(produitEnregistreDansLocalStorage)
+    );
+    console.log(produitEnregistreDansLocalStorage);
+    popupConfirmation();
+  }
+  // Si il n'y a pas de produits dans le LocalStorage
+  else {
+    produitEnregistreDansLocalStorage = [];
+    produitEnregistreDansLocalStorage.push(infoProduit);
+    localStorage.setItem(
+      "produitStorage",
+      JSON.stringify(produitEnregistreDansLocalStorage)
+    );
+    popupConfirmation();
+  }
+});
