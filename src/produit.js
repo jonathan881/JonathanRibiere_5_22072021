@@ -1,11 +1,26 @@
-// Partie page " Produit "
-
 (async function () {
   const articleId = getArticleId();
   const article = await getArticle(articleId);
 
   hydrateArticle(article);
-  console.log(articleId);
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    const choixForm = selectLense();
+    const cart = initializeCart(choixForm);
+
+    article.lense = choixForm;
+
+    cart.products.push(article);
+    cart.nb_products++;
+    cart.total_price += article.price;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.replace("panier.html");
+  };
+
+  //Ecouter le boutton et envoyer le panier
+  btnEnvoyerPanier.addEventListener("click", handleAddToCart);
 })();
 
 // function pour extraire l'Id
@@ -33,77 +48,41 @@ function hydrateArticle(article) {
   document.getElementById("fiche_body").textContent = article.description;
   document.getElementById("fiche_prix").textContent =
     "Prix: " + article.price / 1000 + "€";
-  //document.getElementById("optionLenses").article = article.lenses.value;
-  //console.log(optionLenses);
+
+  displayOptions(article);
 }
-//const lenses = document.querySelector("#optionLenses");
-//console.log(lenses);
-//------------------la gestion du panier
+
+const displayOptions = (article) => {
+  const selectElt = document.getElementById("optionLenses");
+  for (let i = article.lenses.length; i--; ) {
+    const lense = article.lenses[i];
+    const optionElt = document.createElement("option");
+    optionElt.value = lense;
+    optionElt.textContent = lense;
+    selectElt.appendChild(optionElt);
+  }
+};
 
 // Séléction du boutton "Ajoutez l'article au panier"
 const btnEnvoyerPanier = document.querySelector("#btnEnvoyer");
 
-//Ecouter le boutton et envoyer le panier
-btnEnvoyerPanier.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  //Mettre le choix de l'utilisateur dans une variable
+const selectLense = () => {
   const idForm = document.querySelector("#optionLenses");
-  const choixForm = idForm.value;
-  console.log(choixForm);
+  return idForm.value;
+};
 
-  // Récuperation des valeurs du formulaire
-  let infoProduit = {
-    fiche_titre: document.getElementById("fiche_titre").textContent,
-    option: choixForm,
-    prix: document.getElementById("fiche_prix").textContent,
-  };
-  console.log(infoProduit);
-  //--------------Local Storage -------------------------
-  //-----Stocker la récupération des valeurs du formulaire dans localStorage--
-
-  /* Déclaration de la variable "produitEnregistreDansLocalStorage" dans laquelle on
- mets les key et les values qui sont dans localStorage */
-  let produitEnregistreDansLocalStorage = JSON.parse(
-    localStorage.getItem("infoProduit")
-  );
-  // Json.parse c'est pour convertir les données au format JSON qui sont dans
-  // le localStorage en object JS
-
-  console.log(produitEnregistreDansLocalStorage);
-  //Fonction fenetre pop up
-  const popupConfirmation = () => {
-    if (
-      window.confirm(
-        `${
-          document.getElementById("fiche_titre").textContent
-        } option: ${choixForm} a bien été ajouter au panier.
-        Consultez le panier Ok ou revenir a l'acceuil ANNULER`
-      )
-    ) {
-      window.location.href = "./panier.html";
-    } else {
-      window.location.href = "./index.html";
-    }
-  };
-  //S'il y a deja des produit enregistrés dans le localStorage
-  if (produitEnregistreDansLocalStorage) {
-    produitEnregistreDansLocalStorage.push(infoProduit);
-    localStorage.setItem(
-      "produitStorage",
-      JSON.stringify(produitEnregistreDansLocalStorage)
-    );
-    console.log(produitEnregistreDansLocalStorage);
-    popupConfirmation();
+const initializeCart = () => {
+  let cart;
+  if (localStorage.getItem("cart")) {
+    cart = JSON.parse(localStorage.getItem("cart"));
+  } else {
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes
+    // cart = new Cart();
+    cart = {
+      nb_products: 0,
+      products: [],
+      total_price: 0,
+    };
   }
-  // Si il n'y a pas de produits dans le LocalStorage
-  else {
-    produitEnregistreDansLocalStorage = [];
-    produitEnregistreDansLocalStorage.push(infoProduit);
-    localStorage.setItem(
-      "produitStorage",
-      JSON.stringify(produitEnregistreDansLocalStorage)
-    );
-    popupConfirmation();
-  }
-});
+  return cart;
+};
