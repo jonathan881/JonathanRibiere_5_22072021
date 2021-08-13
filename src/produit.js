@@ -47,7 +47,7 @@ function hydrateArticle(article) {
     "Modèle: " + article.name;
   document.getElementById("fiche_body").textContent = article.description;
   document.getElementById("fiche_prix").textContent =
-    "Prix: " + article.price / 1000 + "€";
+    "Prix: " + (article.price / 1000).toFixed(2) + "€";
 
   displayOptions(article);
 }

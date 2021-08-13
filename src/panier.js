@@ -44,14 +44,15 @@ if (cartPanier == null) {
       cartPanier[k].name
     } Option : ${cartPanier[k].lense} </div>
     <div class="container-panier_article-ligne2">Prix : ${
-      cartPanier[k].price / 1000 + "€"
+      (cartPanier[k].price / 1000).toFixed(2) + "€"
     } - <button class="btn-supprimer"> Suprimer l'article </button> </div>
     </div>
   `;
   }
   if (k == cartPanier.length) {
     positionElementPanier.innerHTML = structureProduitPanier;
-    totalGlobal.textContent = "Prix Total : " + cart.total_price / 1000 + "€";
+    totalGlobal.textContent =
+      "Prix Total : " + (cart.total_price / 1000).toFixed(2) + "€";
     NbrArticlePanier.textContent =
       "Nombre d'article dans le panier : " + cart.nb_products;
   }

@@ -30,7 +30,7 @@ function displayArticle(article) {
   //cloneElt.getElementById("optionProduit").textContent = article.lenses;
   cloneElt.getElementById("fiche_body").textContent = article.description;
   cloneElt.getElementById("fiche_prix").textContent =
-    "Prix: " + article.price / 1000 + "€";
+    "Prix: " + (article.price / 1000).toFixed(2) + "€";
   cloneElt.getElementById("produit_lien").href += `?id=${article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);

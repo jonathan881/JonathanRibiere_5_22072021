@@ -12,6 +12,7 @@
       <div id="header">
         <p id="titrePage">ORINOCO</p>
         <a href="./index.html">Accueil</a>
+        <a href="./panier.html">Panier</a>
         <span></span>
       </div>
     </header>
@@ -19,31 +20,61 @@
     <form action="">
       <div class="firstName-container">
         <label for="firstName">Nom</label>
-        <input type="text" autocomplete="off" id="firstName" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="firstName"
+          placeholder="Dupont"
+          required
+        />
         <span></span>
       </div>
 
       <div class="lastName-container">
         <label for="lastName">Prénom</label>
-        <input type="text" autocomplete="off" id="lastName" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="lastName"
+          placeholder="Martin"
+          required
+        />
         <span></span>
       </div>
 
       <div class="address-container">
         <label for="address">Adresse</label>
-        <input type="text" autocomplete="off" id="address" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="address"
+          placeholder="1 rue du moulin"
+          required
+        />
         <span></span>
       </div>
 
       <div class="city-container">
         <label for="city">Ville</label>
-        <input type="text" autocomplete="off" id="city" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="city"
+          placeholder="Paris"
+          required
+        />
         <span></span>
       </div>
 
       <div class="email-container">
         <label for="email">Email</label>
-        <input type="text" autocomplete="off" id="email" />
+        <input
+          type="text"
+          autocomplete="off"
+          id="email"
+          placeholder="email@gmail.com"
+          required
+        />
         <span>Email incorrect</span>
       </div>
       <input type="submit" value="Envoyer" />
