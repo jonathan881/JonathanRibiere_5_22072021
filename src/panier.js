@@ -1,11 +1,10 @@
 let cart = JSON.parse(localStorage.getItem("cart"));
 console.log(cart);
-
 const positionElementPanier = document.querySelector(
   "#container-produits-panier"
 );
-
 const totalGlobal = document.querySelector("#total_prix");
+const NbrArticlePanier = document.querySelector("#total_article");
 
 /*class objectsPanier {
   constructor(nb_products, products, total_price, lense) {
@@ -46,21 +45,17 @@ if (cartPanier == null) {
     } Option : ${cartPanier[k].lense} </div>
     <div class="container-panier_article-ligne2">Prix : ${
       cartPanier[k].price / 1000 + "€"
-    } - Suprimer article</div>
+    } - <button class="btn-supprimer"> Suprimer l'article </button> </div>
     </div>
   `;
   }
   if (k == cartPanier.length) {
     positionElementPanier.innerHTML = structureProduitPanier;
     totalGlobal.textContent = "Prix Total : " + cart.total_price / 1000 + "€";
+    NbrArticlePanier.textContent =
+      "Nombre d'article dans le panier : " + cart.nb_products;
   }
-
-  /*document.getElementById("namePanier").textContent =
-    "Modèle: " + cart.products[1].lense;
-  document.getElementById("optiquePanier").textContent =
-    "Optique : " + cart.products[1].name;
-  document.getElementById("namePanier").textContent =
-    "Modèle: " + cart.products[1].lense;
-  document.getElementById("prixPanier").textContent =
-    "Prix : " + cart.products[1].price / 1000 + "€";*/
 }
+//---------------------------Gestion du boutton supprimer-----------------
+let btnSupprimer = document.querySelectorAll(".btn-supprimer");
+console.log(btnSupprimer);
