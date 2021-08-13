@@ -84,5 +84,19 @@ main {
 //----------------------------- Page panier-------------
 
 .container-panier_article {
-  border: solid;
+  border: solid 1px;
+  margin: 10px;
+  box-shadow: 5px 6px 10px #1d2528;
+  &-ligne1 {
+    background: #1d2528;
+    color: #c69b6d;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  &-ligne2 {
+    background: #c69b6d;
+    color: #1d2528;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
 }

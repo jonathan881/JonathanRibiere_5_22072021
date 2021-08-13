@@ -76,6 +76,18 @@ main {
   color: #1d2528; }
 
 .container-panier_article {
-  border: solid; }
+  border: solid 1px;
+  margin: 10px;
+  box-shadow: 5px 6px 10px #1d2528; }
+  .container-panier_article-ligne1 {
+    background: #1d2528;
+    color: #c69b6d;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  .container-panier_article-ligne2 {
+    background: #c69b6d;
+    color: #1d2528;
+    padding-top: 5px;
+    padding-bottom: 5px; }
 
 /*# sourceMappingURL=style.css.map */

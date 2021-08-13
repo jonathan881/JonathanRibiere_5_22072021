@@ -4,6 +4,9 @@ console.log(cart);
 const positionElementPanier = document.querySelector(
   "#container-produits-panier"
 );
+
+const totalGlobal = document.querySelector("#total_prix");
+
 /*class objectsPanier {
   constructor(nb_products, products, total_price, lense) {
     this.nb_products = nb_products;
@@ -20,8 +23,9 @@ let objectPanier = new objectsPanier(
   cart.lense
 );
 console.log(objectPanier);*/
-
-if (cart === null) {
+let cartPanier = cart.products;
+console.log(cartPanier);
+if (cartPanier == null) {
   const panierVide = `
    <div class="container-panier-vide">
    <div> Le panier est vide<div/>
@@ -30,20 +34,25 @@ if (cart === null) {
   positionElementPanier.innerHTML = panierVide;
 } else {
   let structureProduitPanier = [];
-  let cartPanier = cart.products;
+
   for (k = 0; k < cartPanier.length; k++) {
     console.log("je suis ici" + cartPanier.length);
     structureProduitPanier =
       structureProduitPanier +
       `
     <div class="container-panier_article">
-    <div>Quantité 1 - ${cartPanier[k].name} Option : ${cartPanier[k].lense}</div>
-    <div>Prix : ${cartPanier[k].price} - Suprimer article</div>
+    <div class="container-panier_article-ligne1">Quantité 1 - ${
+      cartPanier[k].name
+    } Option : ${cartPanier[k].lense} </div>
+    <div class="container-panier_article-ligne2">Prix : ${
+      cartPanier[k].price / 1000 + "€"
+    } - Suprimer article</div>
     </div>
   `;
   }
   if (k == cartPanier.length) {
     positionElementPanier.innerHTML = structureProduitPanier;
+    totalGlobal.textContent = "Prix Total : " + cart.total_price / 1000 + "€";
   }
 
   /*document.getElementById("namePanier").textContent =
