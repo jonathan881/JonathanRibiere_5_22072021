@@ -11,7 +11,18 @@ form.addEventListener("submit", (e) => {
       Ville: city.value,
       Email: email.value,
     };
+    //Permet de vidée les champs une fois le formulaire envoyée
+    inputs.forEach((input) => (input.value = ""));
+
+    // Pour évitée au client d'envoyer une seconde fois le formulaire
+    firstName = null;
+    lastName = null;
+    adress = null;
+    city = null;
+    email = null;
+    alert("Inscription validée !");
     console.log(data);
+  } else {
   }
 });
 
