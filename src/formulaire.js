@@ -1,15 +1,47 @@
+const form = document.querySelector("form");
 const inputs = document.querySelectorAll('input[type="text"]');
 
-const firstNameChecker = (value) => {
-  const firstNameContainer = document.querySelector(
-    ".firstName-container > span"
-  );
-  if (value.lenght > 0 && (value.lenght < 2 || value.lenght > 20)) {
-    firstNameContainer.classList.add("error");
-    errorDisplay.textContent = "Le Nom dois faire entre 2 et 20 caractères";
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (firstName && lastName && address && city && email) {
+    const data = {
+      Nom: firstName.value,
+      Prenom: lastName.value,
+      Adresse: address.value,
+      Ville: city.value,
+      Email: email.value,
+    };
+    console.log(data);
+  }
+});
+
+//-------------------- A finir plus tard ------------------------------
+//--------------------Test pour évitée des erreur dans les champs From----------
+/*const errorDisplay = (tag, message, valid) => {
+  const container = document.querySelector("." + tag + "-container");
+  const span = document.querySelector("." + tag + "-container > span");
+
+  if (!valid) {
+    container.classList.add("error");
+    span.textContent = message;
+  } else {
+    container.classList.remove("error");
+    span.textContent = message;
   }
 };
 
+const firstNameChecker = (value) => {
+  if (value.lenght > 0 && (value.lenght < 3 || value.lenght > 20)) {
+    errorDisplay("firstName", "Le nom doit faire entre 2 et 20 caractères");
+  } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+    errorDisplay(
+      "firstName",
+      "Le nom ne dois pas contenir de caractères spéciaux"
+    );
+  } else {
+    errorDisplay("firstName", "", true);
+  }
+};
 const lastNameChecker = (value) => {};
 const emailChecker = (value) => {};
 
@@ -29,4 +61,4 @@ inputs.forEach((input) => {
         null;
     }
   });
-});
+});*/
