@@ -73,3 +73,23 @@ inputs.forEach((input) => {
     }
   });
 });*/
+
+//------------------- Partie Post -------------------------
+// CRUD => Create ( POST), read (GET), update (PUT), delete (DELETE)
+
+const post = {
+  metod: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    data,
+  }),
+  //Cors permet l'autentification
+  mode: "cors",
+  //Credential sert a envoyer les identifiants utulisateur si l'url a la meme origine que le script
+  credential: "same-origin",
+};
+fetch("http://localhost:3000/api/cameras/order", post).then(() =>
+  console.log("data envoyer !")
+);
