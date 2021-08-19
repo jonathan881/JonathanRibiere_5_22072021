@@ -9,12 +9,13 @@
   </head>
 
   <body>
-    <header>
-      <div id="header">
-        <p id="titrePage">ORINOCO</p>
-        <a href="./index.html">Accueil</a>
-      </div>
+    <header id="header">
+      <p id="header-h1">ORINOCO</p>
+      <nav id="header-nav">
+        <a href="./index.html" id="header-lienPanier">Accueil</a>
+      </nav>
     </header>
+
     <div id="container-produits-panier">
       <h2>Les produits sélectionées :</h2>
       
@@ -22,8 +23,74 @@
       <div id="total_article">Article total</div>
       <div id="total_prix">Prix total</div>
     </div>
-<a href="./formulaire.html">Passer la commande</a>
-    <button id="confirm-command">Passer la commande</button>
+
+    <!--Partie formulaire-->
+
+    <form action="">
+      <div class="firstName-container">
+        <label for="firstName">Nom</label> <br />
+        <input
+          type="text"
+          autocomplete="off"
+          id="firstName"
+          placeholder="Dupont"
+          required
+        />
+        <span></span>
+      </div>
+
+      <div class="lastName-container">
+        <label for="lastName">Prénom</label> <br />
+        <input
+          type="text"
+          autocomplete="off"
+          id="lastName"
+          placeholder="Martin"
+          required
+        />
+        <span></span>
+      </div>
+
+      <div class="address-container">
+        <label for="address">Adresse</label> <br />
+        <input
+          type="text"
+          autocomplete="off"
+          id="address"
+          placeholder="1 rue du moulin"
+          required
+        />
+        <span></span>
+      </div>
+
+      <div class="city-container">
+        <label for="city">Ville</label> <br />
+        <input
+          type="text"
+          autocomplete="off"
+          id="city"
+          placeholder="Paris"
+          required
+        />
+        <span></span>
+      </div>
+
+      <div class="email-container">
+        <label for="email">Email</label> <br />
+        <input
+          type="text"
+          autocomplete="off"
+          id="email"
+          placeholder="email@gmail.com"
+          required
+        />
+        <br />
+        <span>Email incorrect</span>
+      </div>
+      <input type="submit" value="Envoyer" />
+    </form>
+
+    <script src="./src/confirmation.js"></script>
 
     <footer>footer</footer>
 

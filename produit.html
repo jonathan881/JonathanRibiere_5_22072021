@@ -8,13 +8,14 @@
     <title>Orinoco</title>
   </head>
   <body>
-    <header>
-      <div id="header">
-        <p id="titrePage">ORINOCO</p>
-      </div>
-      <a href="http://localhost:8080/">Retour page acceuil</a>
-      <a href="./panier.html">Panier</a>
+    <header id="header">
+      <p id="header-h1">ORINOCO</p>
+      <nav id="header-nav">
+        <a href="./index.html" id="header-lienPanier">Accueil</a>
+        <a href="./panier.html" id="header-lienPanier">Panier</a>
+      </nav>
     </header>
+
     <main id="main">
       <article id="fiche">
         <img id="img1" src="#" alt="image" />
@@ -22,7 +23,6 @@
         <form>
           <label for="optionLenses"> Choisir l'option :</label>
           <select name="optionLenses" id="optionLenses">
-            <option disabled selected>Choisir optique</option>
             <!-- <option value="option_1">option_1</option>
             <option value="option_2">option_2</option>
             <option value="option_3">option_3</option> -->
