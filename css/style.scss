@@ -104,6 +104,26 @@ main {
   text-decoration: none;
   color: #1d2528;
 }
+
+//----------------------------Footer--------------------
+.footer {
+  background: #1d2528;
+  &-ul {
+    display: flex;
+    padding-left: 0px;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    &_li {
+      list-style: none;
+      margin-right: 20px;
+      color: #c69b6d;
+      font-size: 1.2rem;
+    }
+  }
+}
 //----------------------------- Page panier-------------
 
 .container-panier_article {
