@@ -125,7 +125,6 @@ form.addEventListener("submit", (e) => {
 /*const errorDisplay = (tag, message, valid) => {
   const container = document.querySelector("." + tag + "-container");
   const span = document.querySelector("." + tag + "-container > span");
-
   if (!valid) {
     container.classList.add("error");
     span.textContent = message;
@@ -134,7 +133,6 @@ form.addEventListener("submit", (e) => {
     span.textContent = message;
   }
 };
-
 const firstNameChecker = (value) => {
   if (value.lenght > 0 && (value.lenght < 3 || value.lenght > 20)) {
     errorDisplay("firstName", "Le nom doit faire entre 2 et 20 caractères");
@@ -149,7 +147,6 @@ const firstNameChecker = (value) => {
 };
 const lastNameChecker = (value) => {};
 const emailChecker = (value) => {};
-
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     switch (e.target.id) {
