@@ -57,10 +57,17 @@ console.log(objectPanier);*/
     NbrArticlePanier.textContent =
       "Nombre d'article dans le panier : " + cart.nb_products;
   }
+
+  function btnDelete() {
+    const btnSupprimer = document.querySelector(".btn-supprimer");
+    console.log(btnSupprimer);
+    btnSupprimer.addEventListener("click", (e) => {
+      localStorage.clear(e);
+      console.log(btnSupprimer);
+    });
+  }
 }
 //---------------------------Gestion du boutton supprimer-----------------
-let btnSupprimer = document.querySelectorAll(".btn-supprimer");
-console.log(btnSupprimer);
 
 //----------------------------Formulaire---------------------------------------
 

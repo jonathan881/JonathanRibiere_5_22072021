@@ -18,7 +18,8 @@ body {
 
 #header {
   background: #1d2528;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  box-shadow: 2px 2px 14px #1d2528; }
   #header-h1 {
     margin-top: 0;
     margin-bottom: 0;
@@ -35,7 +36,6 @@ body {
     display: flex;
     width: 33%;
     margin-left: 5%;
-    border: 2px solid teal;
     padding-bottom: 5px;
     padding-top: 5px;
     background: #c69b6d;
@@ -92,6 +92,9 @@ main {
   text-decoration: none;
   color: #1d2528; }
 
+#btnEnvoyer {
+  margin-bottom: 20px; }
+
 .footer {
   background: #1d2528; }
   .footer-ul {
@@ -111,7 +114,7 @@ main {
 .container-panier_article {
   border: solid 1px;
   margin: 10px;
-  box-shadow: 5px 6px 10px #1d2528; }
+  box-shadow: 0px 2px 20px #1d2528; }
   .container-panier_article-ligne1 {
     background: #1d2528;
     color: #c69b6d;
@@ -158,16 +161,17 @@ span {
   display: inline; }
 
 input[type="submit"] {
-  border: none;
-  background: linear-gradient(65deg, #16d9e7, #5ef9a4);
-  width: 50%;
+  border: solid 1px black;
+  background: #c69b6d;
+  width: 65%;
   margin: 12px auto 0;
   padding: 10px;
-  border-radius: 150px;
+  border-radius: 10px;
   font-size: 1.2rem;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 14px #1d2528;
   cursor: pointer;
-  transition: 0.3s ease; }
+  transition: 0.3s ease;
+  margin-bottom: 45px; }
 
 .error input {
   color: red;
