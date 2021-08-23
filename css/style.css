@@ -22,7 +22,7 @@ body {
   box-shadow: 2px 2px 14px #1d2528; }
   .header-h1 {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     margin-left: 5%;
     height: 50px;
     font-family: "daugther";
@@ -30,12 +30,13 @@ body {
     font-size: 2.3rem; }
   .header-nav {
     width: 100%;
-    padding-bottom: 5px;
-    display: flex; }
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly; }
   .header-lienPanier {
     display: flex;
     width: 33%;
-    margin-left: 5%;
+    margin-left: 0;
     padding-bottom: 5px;
     padding-top: 5px;
     background: #c69b6d;
@@ -103,19 +104,23 @@ main {
     justify-content: center;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 30px;
-    padding-bottom: 30px; }
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: column; }
     .footer-ul_li {
       list-style: none;
       margin-right: 20px;
       color: #c69b6d;
-      font-size: 1.2rem; }
+      font-size: 1.2rem;
+      padding-bottom: 10px; }
 
 .container-panier_article {
   border: solid 1px;
   margin: 10px;
   box-shadow: 0px 2px 20px #1d2528; }
   .container-panier_article-ligne1 {
+    display: flex;
+    justify-content: center;
     background: #1d2528;
     color: #c69b6d;
     padding-top: 5px;
@@ -163,7 +168,7 @@ span {
 input[type="submit"] {
   border: solid 1px black;
   background: #c69b6d;
-  width: 65%;
+  width: auto;
   margin: 12px auto 0;
   padding: 10px;
   border-radius: 10px;

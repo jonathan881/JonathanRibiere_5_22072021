@@ -62,7 +62,7 @@ console.log(objectPanier);*/
     const btnSupprimer = document.querySelector(".btn-supprimer");
     console.log(btnSupprimer);
     btnSupprimer.addEventListener("click", (e) => {
-      localStorage.clear(e);
+      localStorage.removeItem(e);
       console.log(btnSupprimer);
     });
   }
