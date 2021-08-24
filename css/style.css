@@ -131,11 +131,19 @@ main {
       font-family: "dosis";
       cursor: pointer; }
 
+h2 {
+  font-family: "comfortaa";
+  margin-left: 10px;
+  text-align: start;
+  font-size: 1.1rem; }
+
 .container-panier_article {
   border: solid 1px;
   margin: 10px;
   box-shadow: 0px 2px 20px #1d2528; }
   .container-panier_article-ligne1 {
+    font-family: "comfortaa";
+    font-size: 0.6rem;
     display: flex;
     justify-content: center;
     background: #1d2528;
@@ -143,10 +151,22 @@ main {
     padding-top: 5px;
     padding-bottom: 5px; }
   .container-panier_article-ligne2 {
+    font-family: "klee";
     background: #c69b6d;
     color: #1d2528;
     padding-top: 5px;
     padding-bottom: 5px; }
+
+#total_article {
+  font-family: "dosis";
+  font-size: 1.2rem;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+#total_prix {
+  font-family: "dosis";
+  font-size: 1.4rem;
+  padding-bottom: 25px; }
 
 #form-container {
   margin-top: 2rem;
