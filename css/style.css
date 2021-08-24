@@ -108,7 +108,8 @@ main {
   color: #1d2528; }
 
 #btnEnvoyer {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-family: "comfortaa"; }
 
 .footer {
   background: #1d2528; }
