@@ -79,6 +79,16 @@ form.lastName.addEventListener("change", function () {
   validLast(this);
 });
 
+//Ecouter la modification de Address
+form.address.addEventListener("change", function () {
+  validAddress(this);
+});
+
+//Ecouter la modification de City
+form.city.addEventListener("change", function () {
+  validCity(this);
+});
+
 //Ecouter la modification de l'email
 form.email.addEventListener("change", function () {
   validEmail(this);
@@ -93,7 +103,7 @@ const validFirst = function (inputFirst) {
   } else if (/[0-9]/.test(inputFirst.value)) {
     msg = "Votre Nom ne dois pas contenire de chiffre";
   } else {
-    msg = "Le Nom est valide";
+    msg = "Le Nom est Valide";
     valid = true;
   }
   //Affichage
@@ -101,7 +111,7 @@ const validFirst = function (inputFirst) {
   let small = inputFirst.nextElementSibling;
   //On teste l'expression regulière
   if (valid) {
-    small.innerHTML = "Nom valide";
+    small.innerHTML = "Nom Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
@@ -121,7 +131,7 @@ const validLast = function (inputLast) {
   } else if (/[0-9]/.test(inputLast.value)) {
     msg = "Votre Prénom ne dois pas contenire de chiffre";
   } else {
-    msg = "Le Prénom est valide";
+    msg = "Le Prénom est Valide";
     valid = true;
   }
   //Affichage
@@ -129,7 +139,64 @@ const validLast = function (inputLast) {
   let small = inputLast.nextElementSibling;
   //On teste l'expression regulière
   if (valid) {
-    small.innerHTML = "Prénom valide";
+    small.innerHTML = "Prénom Valide";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
+  } else {
+    small.innerHTML = msg;
+    small.classList.remove("text-success");
+    small.classList.add("text-danger");
+  }
+};
+
+//********************** Validation de L'adresse *******************
+const validAddress = function (inputAddress) {
+  let msg;
+  let valid = false;
+  //Au moin un caractère
+  if (inputAddress.value.length < 1) {
+    msg = "Votre adresse dois contenire au moin un caractère";
+  } //else if (!/[0-9]/.test(inputLast.value)) {
+  //msg = "Votre rue  dois contenire un chiffre";
+  //}
+  else {
+    msg = "Adresse est Valide";
+    valid = true;
+  }
+  //Affichage
+  //Récuperation de la balise Small
+  let small = inputAddress.nextElementSibling;
+  //On teste l'expression regulière
+  if (valid) {
+    small.innerHTML = "Adresse Valide";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
+  } else {
+    small.innerHTML = msg;
+    small.classList.remove("text-success");
+    small.classList.add("text-danger");
+  }
+};
+
+//********************** Validation City *******************
+const validCity = function (inputCity) {
+  let msg;
+  let valid = false;
+  //Au moin un caractère
+  if (inputCity.value.length < 1) {
+    msg = "Votre ville dois contenire au moin un caractère";
+  } else if (/[0-9]/.test(inputCity.value)) {
+    msg = "Votre ville ne dois pas contenire de chiffre";
+  } else {
+    msg = "La ville est Valide";
+    valid = true;
+  }
+  //Affichage
+  //Récuperation de la balise Small
+  let small = inputCity.nextElementSibling;
+  //On teste l'expression regulière
+  if (valid) {
+    small.innerHTML = "Ville Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
@@ -151,7 +218,7 @@ const validEmail = function (inputEmail) {
 
   //On teste l'expression regulière
   if (emailRegExp.test(inputEmail.value)) {
-    small.innerHTML = "adresse valid";
+    small.innerHTML = "E-mail Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
@@ -210,51 +277,3 @@ form.addEventListener("submit", (e) => {
   } else {
   }
 });
-
-//-------------------- A finir plus tard ------------------------------
-//--------------------Test pour évitée des erreur dans les champs From----------
-/*const errorDisplay = (tag, message, valid) => {
-  const container = document.querySelector("." + tag + "-container");
-  const span = document.querySelector("." + tag + "-container > span");
-  if (!valid) {
-    container.classList.add("error");
-    span.textContent = message;
-  } else {
-    container.classList.remove("error");
-    span.textContent = message;
-  }
-};
-const firstNameChecker = (value) => {
-  if (value.lenght > 0 && (value.lenght < 3 || value.lenght > 20)) {
-    errorDisplay("firstName", "Le nom doit faire entre 2 et 20 caractères");
-  } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
-    errorDisplay(
-      "firstName",
-      "Le nom ne dois pas contenir de caractères spéciaux"
-    );
-  } else {
-    errorDisplay("firstName", "", true);
-  }
-};
-const lastNameChecker = (value) => {};
-const emailChecker = (value) => {};
-inputs.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    switch (e.target.id) {
-      case "firstName":
-        firstNameChecker(e.target.value);
-        break;
-      case "lastName":
-        lastNameChecker(e.target.value);
-        break;
-      case "email":
-        emailChecker(e.target.value);
-        break;
-      default:
-        null;
-    }
-  });
-});*/
-
-//------------------- Partie Post -------------------------
-// CRUD => Create ( POST), read (GET), update (PUT), delete (DELETE)
