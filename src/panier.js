@@ -222,7 +222,7 @@ const validEmail = function (inputEmail) {
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
-    small.innerHTML = "adresse invalide";
+    small.innerHTML = "E-mail Invalide";
     small.classList.remove("text-success");
     small.classList.add("text-danger");
   }
