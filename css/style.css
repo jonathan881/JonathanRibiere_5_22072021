@@ -1,6 +1,18 @@
 @font-face {
   font-family: "rampart";
   src: url(../font/Rampart_One/RampartOne-Regular.ttf); }
+@font-face {
+  font-family: "dosis";
+  src: url(../font/Dosis/Dosis-VariableFont_wght.ttf); }
+@font-face {
+  font-family: "hina";
+  src: url(../font/Hina_Mincho/HinaMincho-Regular.ttf); }
+@font-face {
+  font-family: "klee";
+  src: url(../font/Klee_One/KleeOne-Regular.ttf); }
+@font-face {
+  font-family: "comfortaa";
+  src: url(../font/Comfortaa/Comfortaa-VariableFont_wght.ttf); }
 body {
   width: 100%;
   height: auto;
@@ -39,7 +51,8 @@ body {
     background: #c69b6d;
     text-decoration: none;
     color: black;
-    justify-content: center; }
+    justify-content: center;
+    font-family: "comfortaa"; }
 
 main {
   width: 100%;
@@ -60,13 +73,17 @@ main {
   border-radius: 15px; }
   #fiche_titre {
     text-transform: capitalize;
-    margin-top: 10px; }
+    margin-top: 10px;
+    font-family: "dosis"; }
   #fiche_body {
     margin-bottom: 0;
     width: 90%;
-    margin-left: 5%; }
+    margin-left: 5%;
+    font-family: "hina"; }
   #fiche_btn {
     margin-top: 2px; }
+  #fiche_prix {
+    font-family: "klee"; }
 
 .btnIndex {
   border: 2px solid teal;
@@ -77,7 +94,8 @@ main {
   padding-bottom: 5px;
   padding-top: 5px;
   background: #c69b6d;
-  border-radius: 10px; }
+  border-radius: 10px;
+  font-family: "dosis"; }
 
 #img1 {
   width: 100%;
@@ -108,7 +126,9 @@ main {
       margin-right: 20px;
       color: #c69b6d;
       font-size: 1.2rem;
-      padding-bottom: 10px; }
+      padding-bottom: 10px;
+      font-family: "dosis";
+      cursor: pointer; }
 
 .container-panier_article {
   border: solid 1px;
