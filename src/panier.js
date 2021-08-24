@@ -66,11 +66,103 @@ console.log(objectPanier);*/
     });
   }
 }
-//---------------------------Gestion du boutton supprimer-----------------
+//***********************REGEXP du formulaire*******************$
+const form = document.querySelector("form");
+
+//Ecouter la modification de firstName
+form.firstName.addEventListener("change", function () {
+  validFirst(this);
+});
+
+//Ecouter la modification de lasttName
+form.lastName.addEventListener("change", function () {
+  validLast(this);
+});
+
+//Ecouter la modification de l'email
+form.email.addEventListener("change", function () {
+  validEmail(this);
+});
+//********************** Validation firstName *******************
+const validFirst = function (inputFirst) {
+  let msg;
+  let valid = false;
+  //Au moin un caractère
+  if (inputFirst.value.length < 1) {
+    msg = "Votre Nom dois contenire au moin un caractère";
+  } else if (/[0-9]/.test(inputFirst.value)) {
+    msg = "Votre Nom ne dois pas contenire de chiffre";
+  } else {
+    msg = "Le Nom est valide";
+    valid = true;
+  }
+  //Affichage
+  //Récuperation de la balise Small
+  let small = inputFirst.nextElementSibling;
+  //On teste l'expression regulière
+  if (valid) {
+    small.innerHTML = "Nom valide";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
+  } else {
+    small.innerHTML = msg;
+    small.classList.remove("text-success");
+    small.classList.add("text-danger");
+  }
+};
+
+//********************** Validation lastName *******************
+const validLast = function (inputLast) {
+  let msg;
+  let valid = false;
+  //Au moin un caractère
+  if (inputLast.value.length < 1) {
+    msg = "Votre Prénom dois contenire au moin un caractère";
+  } else if (/[0-9]/.test(inputLast.value)) {
+    msg = "Votre Prénom ne dois pas contenire de chiffre";
+  } else {
+    msg = "Le Prénom est valide";
+    valid = true;
+  }
+  //Affichage
+  //Récuperation de la balise Small
+  let small = inputLast.nextElementSibling;
+  //On teste l'expression regulière
+  if (valid) {
+    small.innerHTML = "Prénom valide";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
+  } else {
+    small.innerHTML = msg;
+    small.classList.remove("text-success");
+    small.classList.add("text-danger");
+  }
+};
+
+//********************** Validation Email *******************
+const validEmail = function (inputEmail) {
+  // Création de la Reg Exp pour la validation de l'email
+  const emailRegExp = new RegExp(
+    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  );
+
+  //Récuperation de la balise Small
+  let small = inputEmail.nextElementSibling;
+
+  //On teste l'expression regulière
+  if (emailRegExp.test(inputEmail.value)) {
+    small.innerHTML = "adresse valid";
+    small.classList.remove("text-danger");
+    small.classList.add("text-success");
+  } else {
+    small.innerHTML = "adresse invalide";
+    small.classList.remove("text-success");
+    small.classList.add("text-danger");
+  }
+};
 
 //----------------------------Formulaire---------------------------------------
 
-const form = document.querySelector("form");
 const inputs = document.querySelectorAll('input[type="text"]');
 
 form.addEventListener("submit", (e) => {
