@@ -74,7 +74,8 @@ main {
   #fiche_titre {
     text-transform: capitalize;
     margin-top: 10px;
-    font-family: "dosis"; }
+    font-family: "dosis";
+    text-align: center; }
   #fiche_body {
     margin-bottom: 0;
     width: 90%;
@@ -111,31 +112,12 @@ main {
   margin-bottom: 20px;
   font-family: "comfortaa"; }
 
-.footer {
-  background: #1d2528; }
-  .footer-ul {
-    display: flex;
-    padding-left: 0px;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-direction: column; }
-    .footer-ul_li {
-      list-style: none;
-      margin-right: 20px;
-      color: #c69b6d;
-      font-size: 1.2rem;
-      padding-bottom: 10px;
-      font-family: "dosis";
-      cursor: pointer; }
-
 h2 {
   font-family: "comfortaa";
-  margin-left: 10px;
   text-align: start;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  text-align: center;
+  margin-left: 0px; }
 
 .container-panier_article {
   border: solid 1px;
@@ -177,7 +159,8 @@ form {
   margin-left: 15%; }
 
 label {
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-family: "hina"; }
 
 input[type="text"] {
   margin: 7px 0 7px;
@@ -189,7 +172,8 @@ input[type="text"] {
   border-radius: 9px;
   font-size: 1.1rem;
   padding-left: 10px;
-  transition: 0.2s; }
+  transition: 0.2s;
+  font-family: "klee"; }
 
 input[type="text"]:focus {
   border: 1px solid #5ef9a4; }
@@ -217,7 +201,8 @@ input[type="submit"] {
   box-shadow: 2px 2px 14px #1d2528;
   cursor: pointer;
   transition: 0.3s ease;
-  margin-bottom: 45px; }
+  margin-bottom: 45px;
+  font-family: "dosis"; }
 
 .error input {
   color: red;
@@ -229,9 +214,47 @@ input[type="submit"] {
   color: red; }
 
 .text-success {
-  color: green; }
+  color: green;
+  font-family: "comfortaa"; }
 
 .text-danger {
-  color: red; }
+  color: red;
+  font-family: "comfortaa"; }
+
+#confirmation-h2 {
+  font-family: "comfortaa";
+  font-size: 1.1rem;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 15px; }
+
+#recapCommande {
+  font-family: "dosis";
+  font-size: 1.2rem; }
+
+.p-confirmation {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.footer {
+  background: #1d2528; }
+  .footer-ul {
+    display: flex;
+    padding-left: 0px;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: column; }
+    .footer-ul_li {
+      list-style: none;
+      margin-right: 20px;
+      color: #c69b6d;
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+      font-family: "dosis";
+      cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

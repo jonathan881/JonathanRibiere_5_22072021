@@ -86,6 +86,7 @@ main {
     text-transform: capitalize;
     margin-top: 10px;
     font-family: "dosis";
+    text-align: center;
   }
   &_body {
     margin-bottom: 0;
@@ -126,36 +127,15 @@ main {
   margin-bottom: 20px;
   font-family: "comfortaa";
 }
-//----------------------------Footer--------------------
-.footer {
-  background: #1d2528;
-  &-ul {
-    display: flex;
-    padding-left: 0px;
-    justify-content: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    flex-direction: column;
-    &_li {
-      list-style: none;
-      margin-right: 20px;
-      color: #c69b6d;
-      font-size: 1.2rem;
-      padding-bottom: 10px;
-      font-family: "dosis";
-      cursor: pointer;
-    }
-  }
-}
-//----------------------------- Page panier-------------
+
+//Page Panier
 
 h2 {
   font-family: "comfortaa";
-  margin-left: 10px;
   text-align: start;
   font-size: 1.1rem;
+  text-align: center;
+  margin-left: 0px;
 }
 .container-panier_article {
   border: solid 1px;
@@ -191,7 +171,7 @@ h2 {
   padding-bottom: 25px;
 }
 
-//------------------------------Page formulaire------------------------------------
+//Page Formulaire
 
 #form-container {
   margin-top: 2rem;
@@ -202,10 +182,11 @@ form {
   margin-left: 15%;
 }
 
-//-----------------model video---------------------------
+//Formulaire
 
 label {
   letter-spacing: 1px;
+  font-family: "hina";
 }
 input[type="text"] {
   margin: 7px 0 7px;
@@ -218,6 +199,7 @@ input[type="text"] {
   font-size: 1.1rem;
   padding-left: 10px;
   transition: 0.2s;
+  font-family: "klee";
 }
 input[type="text"]:focus {
   border: 1px solid #5ef9a4;
@@ -247,6 +229,7 @@ input[type="submit"] {
   cursor: pointer;
   transition: 0.3s ease;
   margin-bottom: 45px;
+  font-family: "dosis";
 }
 
 .error input {
@@ -262,8 +245,51 @@ input[type="submit"] {
 //regexp
 .text-success {
   color: green;
+  font-family: "comfortaa";
 }
 
 .text-danger {
   color: red;
+  font-family: "comfortaa";
+}
+//Page Confirmation
+
+#confirmation-h2 {
+  font-family: "comfortaa";
+  font-size: 1.1rem;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 15px;
+}
+#recapCommande {
+  font-family: "dosis";
+  font-size: 1.2rem;
+}
+.p-confirmation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+//Footer
+.footer {
+  background: #1d2528;
+  &-ul {
+    display: flex;
+    padding-left: 0px;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: column;
+    &_li {
+      list-style: none;
+      margin-right: 20px;
+      color: #c69b6d;
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+      font-family: "dosis";
+      cursor: pointer;
+    }
+  }
 }
