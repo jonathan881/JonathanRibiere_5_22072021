@@ -18,9 +18,15 @@
   font-family: "comfortaa";
   src: url(../font/Comfortaa/Comfortaa-VariableFont_wght.ttf);
 }
+
+//Class Gras
+.gras {
+  font-weight: bold;
+  font-size: x-large;
+}
 body {
   width: 100%;
-  height: auto;
+  height: 100%;
   margin: 0;
   width: 100%;
   text-align: center;
@@ -35,7 +41,7 @@ body {
     margin-top: 0;
     margin-bottom: 1rem;
     margin-left: 5%;
-    height: 50px;
+    height: 70px;
     font-family: "rampart";
     color: #c69b6d;
     font-size: 2.3rem;
@@ -53,8 +59,8 @@ body {
     width: 100%;
     margin-left: 0;
     margin-bottom: 1px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
     background: #c69b6d;
     text-decoration: none;
     color: black;
@@ -130,7 +136,8 @@ main {
 
 //Page Panier
 
-h2 {
+h2,
+h3 {
   font-family: "comfortaa";
   text-align: start;
   font-size: 1.1rem;
@@ -273,6 +280,8 @@ input[type="submit"] {
 //Footer
 .footer {
   background: #1d2528;
+  bottom: 0;
+  width: 100%;
   &-ul {
     display: flex;
     padding-left: 0px;

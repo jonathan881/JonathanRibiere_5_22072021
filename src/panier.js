@@ -45,7 +45,7 @@ console.log(objectPanier);*/
     (cartPanier[k].price / 1000).toFixed(2) + "€"
   } - <button class="btn-supprimer" data-id="${
       cartPanier[k]._id
-    }"> Suprimer l'article </button> </div>
+    }"> Suprimer l'article<i class="fas fa-trash-alt"></i> </button> </div>
   </div>
 `;
   }
