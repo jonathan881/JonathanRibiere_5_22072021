@@ -1,5 +1,5 @@
 main();
-
+//Afichée les article du backend en asynchrone
 async function main() {
   const articles = await getArticles();
   console.log(articles);
@@ -7,6 +7,7 @@ async function main() {
     displayArticle(articles[i]);
   }
 }
+//Permet de récupérer les articles dans le backend au format .JSON
 function getArticles() {
   return fetch("http://localhost:3000/api/cameras")
     .then(function (response) {
@@ -19,7 +20,7 @@ function getArticles() {
       alert(error);
     });
 }
-
+//Afficher en dynamique les valeurs reçu du back sur la page index.html
 function displayArticle(article) {
   const templateElt = document.getElementById("templateArticle");
   const cloneElt = document.importNode(templateElt.content, true);

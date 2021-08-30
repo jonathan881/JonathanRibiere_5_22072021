@@ -3,7 +3,7 @@ const positionElementPanier = document.querySelector(
 );
 let cart = JSON.parse(localStorage.getItem("cart"));
 console.log(cart);
-
+//Affichée la class container-panier-vide si aucun article est séléctioné
 if (!cart || !cart.products.length) {
   console.log(1);
   const panierVide = `
@@ -12,28 +12,13 @@ if (!cart || !cart.products.length) {
   </div>
   `;
   positionElementPanier.innerHTML = panierVide;
-} else {
+}
+//Si un article minimum est séléctionée alors il l'affiche avec son nom, son prix ....
+else {
   const totalGlobal = document.querySelector("#total_prix");
   const NbrArticlePanier = document.querySelector("#total_article");
-
-  /*class objectsPanier {
-  constructor(nb_products, products, total_price, lense) {
-    this.nb_products = nb_products;
-    this.products = products.name;
-    this.total_price = total_price;
-    this.lense = lense;
-    
-  }
-}
-let objectPanier = new objectsPanier(
-  cart.nb_products,
-  cart.products,
-  cart.total_price,
-  cart.lense
-);
-console.log(objectPanier);*/
   let cartPanier = cart.products;
-
+  // Permet de créer autan de div que d'article séléctionée
   for (k = 0; k < cartPanier.length; k++) {
     console.log("je suis ici" + cartPanier.length);
     positionElementPanier.innerHTML = positionElementPanier.innerHTML += `
@@ -54,6 +39,7 @@ console.log(objectPanier);*/
   NbrArticlePanier.textContent =
     "Nombre d'article dans le panier : " + cart.nb_products;
 
+  //Partie pour le boutton supprimé avec la méthode Filter
   const btnsRemove = document.querySelectorAll(".btn-supprimer");
 
   for (let i = btnsRemove.length; i--; ) {
@@ -156,10 +142,9 @@ const validAddress = function (inputAddress) {
   //Au moin un caractère
   if (inputAddress.value.length < 1) {
     msg = "Votre adresse dois contenire au moin un caractère";
-  } //else if (!/[0-9]/.test(inputLast.value)) {
-  //msg = "Votre rue  dois contenire un chiffre";
-  //}
-  else {
+  } else if (!/[0-9]/.test(inputLast.value)) {
+    msg = "Votre rue  dois contenire un chiffre";
+  } else {
     msg = "Adresse est Valide";
     valid = true;
   }
@@ -229,14 +214,15 @@ const validEmail = function (inputEmail) {
 };
 
 //----------------------------Formulaire---------------------------------------
-
+//Permet de séléctionée tous les inputs du form
 const inputs = document.querySelectorAll('input[type="text"]');
-
+//Ecouter les évenements sur firstName, lastName...
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  //Si firstName, lastName... on un évènement, alors il les parse "cart" en Json
   if (firstName && lastName && address && city && email) {
     const cart = JSON.parse(localStorage.getItem("cart"));
-
+    // Object orientée
     const data = {
       contact: {
         lastName: firstName.value,
@@ -253,7 +239,7 @@ form.addEventListener("submit", (e) => {
       // }
     };
     console.log(data);
-
+    // Se fetch permet d'envoyée les value du client qu'il a renseignier dans le form
     fetch("http://localhost:3000/api/cameras/order", {
       method: "POST",
       headers: {
