@@ -81,27 +81,20 @@ form.email.addEventListener("change", function () {
 });
 //********************** Validation firstName *******************
 const validFirst = function (inputFirst) {
-  let msg;
-  let valid = false;
-  //Au moin un caractère
-  if (inputFirst.value.length < 1) {
-    msg = "Votre Nom dois contenire au moin un caractère";
-  } else if (/[0-9]/.test(inputFirst.value)) {
-    msg = "Votre Nom ne dois pas contenire de chiffre";
-  } else {
-    msg = "Le Nom est Valide";
-    valid = true;
-  }
-  //Affichage
+  // Création de la Reg Exp pour la validation de l'email
+  const firstRegExp = new RegExp(/^[a-z ,.'-]+$/);
+  //let msg;
+  //let valid = false;
+
   //Récuperation de la balise Small
   let small = inputFirst.nextElementSibling;
   //On teste l'expression regulière
-  if (valid) {
+  if (firstRegExp.test(inputFirst.value)) {
     small.innerHTML = "Nom Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
-    small.innerHTML = msg;
+    small.innerHTML = "Nom Invalide";
     small.classList.remove("text-success");
     small.classList.add("text-danger");
   }
