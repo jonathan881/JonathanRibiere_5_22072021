@@ -81,10 +81,8 @@ form.email.addEventListener("change", function () {
 });
 //********************** Validation firstName *******************
 const validFirst = function (inputFirst) {
-  // Création de la Reg Exp pour la validation de l'email
-  const firstRegExp = new RegExp(/^[a-z ,.'-]+$/);
-  //let msg;
-  //let valid = false;
+  // Création de la Reg Exp pour la validation du Nom
+  let firstRegExp = new RegExp(/^[a-z ,.'-]+$/);
 
   //Récuperation de la balise Small
   let small = inputFirst.nextElementSibling;
@@ -102,27 +100,17 @@ const validFirst = function (inputFirst) {
 
 //********************** Validation lastName *******************
 const validLast = function (inputLast) {
-  let msg;
-  let valid = false;
-  //Au moin un caractère
-  if (inputLast.value.length < 1) {
-    msg = "Votre Prénom dois contenire au moin un caractère";
-  } else if (/[0-9]/.test(inputLast.value)) {
-    msg = "Votre Prénom ne dois pas contenire de chiffre";
-  } else {
-    msg = "Le Prénom est Valide";
-    valid = true;
-  }
-  //Affichage
+  // Création de la Reg Exp pour la validation du Prenom
+  let lastRegExp = new RegExp(/^[a-z ,.'-]+$/);
   //Récuperation de la balise Small
   let small = inputLast.nextElementSibling;
   //On teste l'expression regulière
-  if (valid) {
+  if (lastRegExp.test(inputLast.value)) {
     small.innerHTML = "Prénom Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
-    small.innerHTML = msg;
+    small.innerHTML = "Invalide";
     small.classList.remove("text-success");
     small.classList.add("text-danger");
   }
@@ -130,27 +118,17 @@ const validLast = function (inputLast) {
 
 //********************** Validation de L'adresse *******************
 const validAddress = function (inputAddress) {
-  let msg;
-  let valid = false;
-  //Au moin un caractère
-  if (inputAddress.value.length < 1) {
-    msg = "Votre adresse dois contenire au moin un caractère";
-  } else if (!/[0-9]/.test(inputLast.value)) {
-    msg = "Votre rue  dois contenire un chiffre";
-  } else {
-    msg = "Adresse est Valide";
-    valid = true;
-  }
-  //Affichage
+  // Création de la Reg Exp pour la validation de l'adresse
+  let addressRegExp = new RegExp(/^[#.0-9a-zA-Z\s,-]+$/);
   //Récuperation de la balise Small
   let small = inputAddress.nextElementSibling;
   //On teste l'expression regulière
-  if (valid) {
+  if (addressRegExp.test(inputAddress.value)) {
     small.innerHTML = "Adresse Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
-    small.innerHTML = msg;
+    small.innerHTML = "Invalide";
     small.classList.remove("text-success");
     small.classList.add("text-danger");
   }
