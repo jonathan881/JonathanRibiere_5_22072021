@@ -280,8 +280,10 @@ input[type="submit"] {
 //Footer
 .footer {
   background: #1d2528;
-  bottom: 0;
   width: 100%;
+  position: absolute;
+  //bottom: 0;
+  left: 0;
   &-ul {
     display: flex;
     padding-left: 0px;

@@ -158,27 +158,19 @@ const validAddress = function (inputAddress) {
 
 //********************** Validation City *******************
 const validCity = function (inputCity) {
-  let msg;
-  let valid = false;
-  //Au moin un caractère
-  if (inputCity.value.length < 1) {
-    msg = "Votre ville dois contenire au moin un caractère";
-  } else if (/[0-9]/.test(inputCity.value)) {
-    msg = "Votre ville ne dois pas contenire de chiffre";
-  } else {
-    msg = "La ville est Valide";
-    valid = true;
-  }
-  //Affichage
+  // Création de la Reg Exp pour la validation de City
+  let cityRegExp = new RegExp(/^[a-zA-Z',.\s-]{1,25}$/);
+
   //Récuperation de la balise Small
   let small = inputCity.nextElementSibling;
+
   //On teste l'expression regulière
-  if (valid) {
+  if (cityRegExp.test(inputCity.value)) {
     small.innerHTML = "Ville Valide";
     small.classList.remove("text-danger");
     small.classList.add("text-success");
   } else {
-    small.innerHTML = msg;
+    small.innerHTML = "Invalide";
     small.classList.remove("text-success");
     small.classList.add("text-danger");
   }
@@ -254,5 +246,6 @@ form.addEventListener("submit", (e) => {
         alert(error);
       });
   } else {
+    alert("formulaire pas correctement rempli");
   }
 });

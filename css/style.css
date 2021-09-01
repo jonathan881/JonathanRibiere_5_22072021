@@ -244,8 +244,9 @@ input[type="submit"] {
 
 .footer {
   background: #1d2528;
-  bottom: 0;
-  width: 100%; }
+  width: 100%;
+  position: absolute;
+  left: 0; }
   .footer-ul {
     display: flex;
     padding-left: 0px;
