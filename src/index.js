@@ -2,7 +2,6 @@ main();
 //Afichée les article du backend en asynchrone
 async function main() {
   const articles = await getArticles();
-  console.log(articles);
   for (let i = 0; i < articles.length; i++) {
     displayArticle(articles[i]);
   }
@@ -35,5 +34,4 @@ function displayArticle(article) {
   cloneElt.getElementById("produit_lien").href += `?id=${article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);
-  console.log(article);
 }

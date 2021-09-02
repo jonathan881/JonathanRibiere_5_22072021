@@ -2,10 +2,8 @@ const positionElementPanier = document.querySelector(
   "#container-produits-panier"
 );
 let cart = JSON.parse(localStorage.getItem("cart"));
-console.log(cart);
 //Affichée la class container-panier-vide si aucun article est séléctioné
 if (!cart || !cart.products.length) {
-  console.log(1);
   const panierVide = `
   <div class="container-panier-vide">
   <div> Le panier est vide<div/>
@@ -20,7 +18,6 @@ else {
   let cartPanier = cart.products;
   // Permet de créer autan de div que d'article séléctionée
   for (k = 0; k < cartPanier.length; k++) {
-    console.log("je suis ici" + cartPanier.length);
     positionElementPanier.innerHTML = positionElementPanier.innerHTML += `
   <div class="container-panier_article">
   <div class="container-panier_article-ligne1">Quantité 1 - ${
@@ -193,7 +190,7 @@ const inputs = document.querySelectorAll('input[type="text"]');
 //Ecouter les évenements sur firstName, lastName...
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //Si firstName, lastName... on un évènement, alors il les parse "cart" en Json
+  //Si firstName, lastName... sont valide au RegExp, alors il les parse "cart" en Json
   if (
     validFirst(form.firstName) &&
     validLast(form.lastName) &&
@@ -218,7 +215,6 @@ form.addEventListener("submit", (e) => {
       //   productsIds.push(cart.products[i]._id);
       // }
     };
-    console.log(data);
     // Se fetch permet d'envoyée les value du client qu'il a renseignier dans le form
     fetch("http://localhost:3000/api/cameras/order", {
       method: "POST",
@@ -232,7 +228,6 @@ form.addEventListener("submit", (e) => {
         return response.json();
       })
       .then(function (order) {
-        console.log("data envoyer !", order);
         localStorage.removeItem("cart");
         localStorage.setItem("order", JSON.stringify(order));
         location.replace("confirmation.html");
