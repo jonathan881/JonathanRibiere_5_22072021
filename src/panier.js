@@ -80,19 +80,6 @@ form.email.addEventListener("change", function () {
   validEmail(this);
 });
 
-//Ecouter la soumission du formulaire
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (
-    validFirst(form.firstName) &&
-    validLast(form.lastName) &&
-    validAddress(form.address) &&
-    validCity(form.city) &&
-    validEmail(form.email)
-  ) {
-    form.submit();
-  }
-});
 //********************** Validation firstName *******************
 const validFirst = function (inputFirst) {
   // Création de la Reg Exp pour la validation du Nom
@@ -117,7 +104,7 @@ const validFirst = function (inputFirst) {
 //********************** Validation lastName *******************
 const validLast = function (inputLast) {
   // Création de la Reg Exp pour la validation du Prenom
-  let lastRegExp = new RegExp(/^[a-z ,.'-]+$/);
+  let lastRegExp = new RegExp(/^[a-zA-Z ,.'-]+$/);
   //Récuperation de la balise Small
   let small = inputLast.nextElementSibling;
   //On teste l'expression regulière
@@ -207,7 +194,13 @@ const inputs = document.querySelectorAll('input[type="text"]');
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //Si firstName, lastName... on un évènement, alors il les parse "cart" en Json
-  if (firstName && lastName && address && city && email) {
+  if (
+    validFirst(form.firstName) &&
+    validLast(form.lastName) &&
+    validAddress(form.address) &&
+    validCity(form.city) &&
+    validEmail(form.email)
+  ) {
     const cart = JSON.parse(localStorage.getItem("cart"));
     // Object orientée
     const data = {
