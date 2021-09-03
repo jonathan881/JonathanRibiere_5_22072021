@@ -199,7 +199,7 @@ input[type="submit"] {
   border: solid 1px black;
   background: #c69b6d;
   width: auto;
-  margin: 12px auto 0;
+  margin-top: 30px;
   padding: 10px;
   border-radius: 10px;
   font-size: 1.2rem;
@@ -264,5 +264,18 @@ input[type="submit"] {
       padding-bottom: 10px;
       font-family: "dosis";
       cursor: pointer; }
+
+@media screen and (min-width: 600px) {
+  #img1 {
+    height: 300px; }
+
+  .footer-ul {
+    flex-direction: initial; }
+    .footer-ul_li {
+      margin-right: 40px; }
+
+  #container-produits-panier {
+    width: 80%;
+    margin-left: 10%; } }
 
 /*# sourceMappingURL=style.css.map */
