@@ -76,8 +76,6 @@ const initializeCart = () => {
   if (localStorage.getItem("cart")) {
     cart = JSON.parse(localStorage.getItem("cart"));
   } else {
-    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes
-    // cart = new Cart();
     cart = {
       nb_products: 0,
       products: [],

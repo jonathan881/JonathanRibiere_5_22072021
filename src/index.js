@@ -27,7 +27,6 @@ function displayArticle(article) {
   cloneElt.getElementById("img1").src = article.imageUrl;
   cloneElt.getElementById("fiche_titre").textContent =
     "Modèle: " + article.name;
-  //cloneElt.getElementById("optionProduit").textContent = article.lenses;
   cloneElt.getElementById("fiche_body").textContent = article.description;
   cloneElt.getElementById("fiche_prix").textContent =
     "Prix: " + (article.price / 1000).toFixed(2) + "€";

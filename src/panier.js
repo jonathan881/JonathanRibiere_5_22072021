@@ -27,7 +27,7 @@ else {
     (cartPanier[k].price / 1000).toFixed(2) + "€"
   } - <button class="btn-supprimer" data-id="${
       cartPanier[k]._id
-    }"> Suprimer l'article<i class="fas fa-trash-alt"></i> </button> </div>
+    }">Supprimer l'article &nbsp<i class="fas fa-trash-alt"></i> </button> </div>
   </div>
 `;
   }
@@ -80,7 +80,7 @@ form.email.addEventListener("change", function () {
 //********************** Validation firstName *******************
 const validFirst = function (inputFirst) {
   // Création de la Reg Exp pour la validation du Nom
-  let firstRegExp = new RegExp(/^[a-z ,.'-]+$/);
+  let firstRegExp = new RegExp(/^[a-zA-Z ,.'-]+$/);
 
   //Récuperation de la balise Small
   let small = inputFirst.nextElementSibling;
@@ -190,7 +190,6 @@ const inputs = document.querySelectorAll('input[type="text"]');
 //Ecouter les évenements sur firstName, lastName...
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //Si firstName, lastName... sont valide au RegExp, alors il les parse "cart" en Json
   if (
     validFirst(form.firstName) &&
     validLast(form.lastName) &&
@@ -209,11 +208,6 @@ form.addEventListener("submit", (e) => {
         email: email.value,
       },
       products: cart.products.map((product) => product._id),
-      // POUR REMPLACER LE MAP SI BESOIN
-      // let productsIds = [];
-      // for (let i = cart.products.length; i--;) {
-      //   productsIds.push(cart.products[i]._id);
-      // }
     };
     // Se fetch permet d'envoyée les value du client qu'il a renseignier dans le form
     fetch("http://localhost:3000/api/cameras/order", {
