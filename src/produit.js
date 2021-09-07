@@ -42,11 +42,11 @@ function getArticle(articleId) {
 }
 
 function hydrateArticle(article) {
-  document.getElementById("img1").src = article.imageUrl;
-  document.getElementById("fiche_titre").textContent =
+  document.querySelector(".img1").setAttribute("src", article.imageUrl);
+  document.querySelector(".fiche_titre").textContent =
     "Modèle: " + article.name;
-  document.getElementById("fiche_body").textContent = article.description;
-  document.getElementById("fiche_prix").textContent =
+  document.querySelector(".fiche_body").textContent = article.description;
+  document.querySelector(".fiche_prix").textContent =
     "Prix: " + (article.price / 1000).toFixed(2) + "€";
 
   displayOptions(article);
