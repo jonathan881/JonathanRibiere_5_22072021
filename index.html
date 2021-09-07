@@ -24,14 +24,16 @@
     </header>
     <main id="main">
       <template class="templateArticle">
-        <article id="fiche">
+        <article class="fiche">
           <img class="img1" src="#" alt="image" />
-          <h2 id="fiche_titre">TITRE</h2>
-          <h3 id="fiche_body">CONTENU</h3>
+          <h2 class="fiche_titre">TITRE</h2>
+          <h3 class="fiche_body">CONTENU</h3>
 
-          <p id="fiche_prix">PRIX</p>
+          <p class="fiche_prix">PRIX</p>
           <div class="btnIndex">
-            <a href="./produit.html" id="produit_lien">Voir le produit</a>
+            <div class=btnIndex-lien>
+            <a href="./produit.html" class="produit_lien">Voir le produit</a>
+          </div>
           </div>
         </article>
       </template>
@@ -44,10 +46,7 @@
       </ul>
     </footer>
 
-    <!--Les fichier JS doivent toujours etre lu en dernier-->
-    <!--Enlevée une fois project terminée-->
-
-    <script src="./polyfill.bundle.js"></script>
-    <script src="./app.bundle.js"></script>
+    <script src="dist/polyfill.bundle.js"></script>
+    <script src="dist/app.bundle.js"></script>
   </body>
 </html>

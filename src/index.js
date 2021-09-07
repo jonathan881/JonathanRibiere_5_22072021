@@ -24,13 +24,16 @@ function displayArticle(article) {
   const templateElt = document.querySelector(".templateArticle");
   const cloneElt = document.importNode(templateElt.content, true);
 
-  cloneElt.querySelector(".img1") = article.imageUrl;
-  cloneElt.getElementById("fiche_titre").textContent =
+  cloneElt.querySelector(".img1").setAttribute("src", article.imageUrl);
+
+  //cloneElt.querySelector(".fiche_titre").setAttribute("textContent", "Modèle: " + article.name);
+
+  cloneElt.querySelector(".fiche_titre").textContent =
     "Modèle: " + article.name;
-  cloneElt.getElementById("fiche_body").textContent = article.description;
-  cloneElt.getElementById("fiche_prix").textContent =
+  cloneElt.querySelector(".fiche_body").textContent = article.description;
+  cloneElt.querySelector(".fiche_prix").textContent =
     "Prix: " + (article.price / 1000).toFixed(2) + "€";
-  cloneElt.getElementById("produit_lien").href += `?id=${article._id}`;
+  cloneElt.querySelector(".produit_lien").href += `?id=${article._id}`;
 
   document.getElementById("main").appendChild(cloneElt);
 }
