@@ -68,7 +68,7 @@ main {
   flex-direction: column;
   align-items: center; }
 
-#fiche {
+.fiche {
   border: 1px solid black;
   width: 80%;
   height: auto;
@@ -77,19 +77,19 @@ main {
   background-color: #efece8;
   box-shadow: 4px 4px 6px #aaa;
   border-radius: 15px; }
-  #fiche_titre {
+  .fiche_titre {
     text-transform: capitalize;
     margin-top: 10px;
     font-family: "dosis";
     text-align: center; }
-  #fiche_body {
+  .fiche_body {
     margin-bottom: 0;
     width: 90%;
     margin-left: 5%;
     font-family: "hina"; }
-  #fiche_btn {
+  .fiche_btn {
     margin-top: 2px; }
-  #fiche_prix {
+  .fiche_prix {
     font-family: "klee"; }
 
 .btnIndex {
@@ -104,7 +104,7 @@ main {
   border-radius: 10px;
   font-family: "dosis"; }
 
-#img1 {
+.img1 {
   width: 100%;
   height: 165px;
   object-fit: cover;
@@ -247,7 +247,7 @@ input[type="submit"] {
 .footer {
   background: #1d2528;
   width: 100%;
-  position: absolute;
+  bottom: 0;
   left: 0; }
   .footer-ul {
     display: flex;
@@ -268,7 +268,7 @@ input[type="submit"] {
       cursor: pointer; }
 
 @media screen and (min-width: 600px) {
-  #img1 {
+  .img1 {
     height: 300px; }
 
   .footer-ul {

@@ -21,10 +21,10 @@ function getArticles() {
 }
 //Afficher en dynamique les valeurs reçu du back sur la page index.html
 function displayArticle(article) {
-  const templateElt = document.getElementById("templateArticle");
+  const templateElt = document.querySelector(".templateArticle");
   const cloneElt = document.importNode(templateElt.content, true);
 
-  cloneElt.getElementById("img1").src = article.imageUrl;
+  cloneElt.querySelector(".img1") = article.imageUrl;
   cloneElt.getElementById("fiche_titre").textContent =
     "Modèle: " + article.name;
   cloneElt.getElementById("fiche_body").textContent = article.description;

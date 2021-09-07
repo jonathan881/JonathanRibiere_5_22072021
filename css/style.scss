@@ -81,7 +81,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
-#fiche {
+.fiche {
   border: 1px solid black;
   width: 80%;
   height: auto;
@@ -121,7 +121,7 @@ main {
   border-radius: 10px;
   font-family: "dosis";
 }
-#img1 {
+.img1 {
   width: 100%;
   height: 165px;
   object-fit: cover;
@@ -283,8 +283,7 @@ input[type="submit"] {
 .footer {
   background: #1d2528;
   width: 100%;
-  position: absolute;
-  //bottom: 0%;
+  bottom: 0;
   left: 0;
   &-ul {
     display: flex;
@@ -309,7 +308,7 @@ input[type="submit"] {
 // Media Querie
 @media screen and (min-width: 600px) {
   //Photo de l'apareil dans la page produit.html
-  #img1 {
+  .img1 {
     height: 300px;
   }
   .footer-ul {
