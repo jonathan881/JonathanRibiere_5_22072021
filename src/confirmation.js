@@ -3,10 +3,6 @@ const order = JSON.parse(localStorage.getItem("order"));
 const calculatePriceTotal = () => {
   let priceTotal = 0;
   order.products.map((product) => (priceTotal += product.price));
-  // EQUIVALENT AU MAP
-  // for (let i = order.products.length; i--;) {
-  //   priceTotal += order.products[i].price;
-  // }
   return priceTotal;
 };
 
@@ -16,6 +12,7 @@ const positionElementConfirm = document.querySelector(
   "#containerRecapitulatif"
 );
 
+//Afficher la page confirmation.html en dynamique
 const structureConfirmCommande = `
 <h2 id="confirmation-h2">
 Félicitations ${order.contact.firstName}, votre commande a était

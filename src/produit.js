@@ -3,7 +3,7 @@
   const article = await getArticle(articleId);
 
   hydrateArticle(article);
-
+  //Cette fonction permet d'envoyée les événements au localStorage avec le format JSON.stringify dans la variable "cart"
   const handleAddToCart = (event) => {
     event.preventDefault();
     const choixForm = selectLense();
@@ -40,7 +40,7 @@ function getArticle(articleId) {
       alert(error);
     });
 }
-
+//Cette fonction permet d'injecter de façon dynamique les infos de l'article récupérée dans le back sur la page produit.html
 function hydrateArticle(article) {
   document.querySelector(".img1").setAttribute("src", article.imageUrl);
   document.querySelector(".fiche_titre").textContent =
@@ -51,7 +51,7 @@ function hydrateArticle(article) {
 
   displayOptions(article);
 }
-
+//Cette fonction permet  de créer une boucle for afin d'afficher les options de l'article sélectionné
 const displayOptions = (article) => {
   const selectElt = document.getElementById("optionLenses");
   for (let i = article.lenses.length; i--; ) {

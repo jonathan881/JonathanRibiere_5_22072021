@@ -230,6 +230,6 @@ form.addEventListener("submit", (e) => {
         alert(error);
       });
   } else {
-    alert("formulaire pas correctement rempli");
+    alert("Votre formulaire semble comporter une ou plusieurs erreurs.");
   }
 });

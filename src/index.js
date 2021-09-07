@@ -25,9 +25,6 @@ function displayArticle(article) {
   const cloneElt = document.importNode(templateElt.content, true);
 
   cloneElt.querySelector(".img1").setAttribute("src", article.imageUrl);
-
-  //cloneElt.querySelector(".fiche_titre").setAttribute("textContent", "Modèle: " + article.name);
-
   cloneElt.querySelector(".fiche_titre").textContent =
     "Modèle: " + article.name;
   cloneElt.querySelector(".fiche_body").textContent = article.description;
