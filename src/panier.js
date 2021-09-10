@@ -49,141 +49,57 @@ else {
     });
   }
 }
+
+const regexName = new RegExp(/^[a-zA-Z ,.'-]+$/);
+const regexAddress = new RegExp(/^[#.0-9a-zA-Z\s,-]+$/);
+const regexMail = new RegExp(
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+);
+
 //***********************REGEXP du formulaire*******************$
 const form = document.querySelector("form");
 
 //Ecouter la modification de firstName
 form.firstName.addEventListener("change", function () {
-  validFirst(this);
+  checkInputRegex("#firstName", regexName, "Prénom");
 });
 
 //Ecouter la modification de lasttName
 form.lastName.addEventListener("change", function () {
-  validLast(this);
+  checkInputRegex("#lastName", regexName, "Nom");
 });
 
 //Ecouter la modification de Address
 form.address.addEventListener("change", function () {
-  validAddress(this);
+  checkInputRegex("#address", regexAddress, "Adresse");
 });
 
 //Ecouter la modification de City
 form.city.addEventListener("change", function () {
-  validCity(this);
+  checkInputRegex("#city", regexAddress, "Ville");
 });
 
 //Ecouter la modification de l'email
 form.email.addEventListener("change", function () {
-  validEmail(this);
+  checkInputRegex("#email", regexMail, "Email");
 });
 
-//********************** Validation firstName *******************
-const validFirst = function (inputFirst) {
-  // Création de la Reg Exp pour la validation du Nom
-  let firstRegExp = new RegExp(/^[a-zA-Z ,.'-]+$/);
-
-  //Récuperation de la balise Small
-  let small = inputFirst.nextElementSibling;
-  //On teste l'expression regulière
-  if (firstRegExp.test(inputFirst.value)) {
-    small.innerHTML = "Nom Valide";
+//********************** Validation firstName *****************
+const checkInputRegex = (input, reg, txt) => {
+  const elt = document.querySelector(input);
+  const small = elt.nextElementSibling;
+  if (reg.test(elt.value)) {
+    small.innerHTML = `${txt} valide`;
     small.classList.remove("text-danger");
     small.classList.add("text-success");
     return true;
   } else {
-    small.innerHTML = "Nom Invalide";
+    small.innerHTML = `${txt} invalide`;
     small.classList.remove("text-success");
     small.classList.add("text-danger");
     return false;
   }
 };
-
-//********************** Validation lastName *******************
-const validLast = function (inputLast) {
-  // Création de la Reg Exp pour la validation du Prenom
-  let lastRegExp = new RegExp(/^[a-zA-Z ,.'-]+$/);
-  //Récuperation de la balise Small
-  let small = inputLast.nextElementSibling;
-  //On teste l'expression regulière
-  if (lastRegExp.test(inputLast.value)) {
-    small.innerHTML = "Prénom Valide";
-    small.classList.remove("text-danger");
-    small.classList.add("text-success");
-    return true;
-  } else {
-    small.innerHTML = "Invalide";
-    small.classList.remove("text-success");
-    small.classList.add("text-danger");
-    return false;
-  }
-};
-
-//********************** Validation de L'adresse *******************
-const validAddress = function (inputAddress) {
-  // Création de la Reg Exp pour la validation de l'adresse
-  let addressRegExp = new RegExp(/^[#.0-9a-zA-Z\s,-]+$/);
-  //Récuperation de la balise Small
-  let small = inputAddress.nextElementSibling;
-  //On teste l'expression regulière
-  if (addressRegExp.test(inputAddress.value)) {
-    small.innerHTML = "Adresse Valide";
-    small.classList.remove("text-danger");
-    small.classList.add("text-success");
-    return true;
-  } else {
-    small.innerHTML = "Invalide";
-    small.classList.remove("text-success");
-    small.classList.add("text-danger");
-    return false;
-  }
-};
-
-//********************** Validation City *******************
-const validCity = function (inputCity) {
-  // Création de la Reg Exp pour la validation de City
-  let cityRegExp = new RegExp(/^[a-zA-Z',.\s-]{1,25}$/);
-
-  //Récuperation de la balise Small
-  let small = inputCity.nextElementSibling;
-
-  //On teste l'expression regulière
-  if (cityRegExp.test(inputCity.value)) {
-    small.innerHTML = "Ville Valide";
-    small.classList.remove("text-danger");
-    small.classList.add("text-success");
-    return true;
-  } else {
-    small.innerHTML = "Invalide";
-    small.classList.remove("text-success");
-    small.classList.add("text-danger");
-    return false;
-  }
-};
-
-//********************** Validation Email *******************
-const validEmail = function (inputEmail) {
-  // Création de la Reg Exp pour la validation de l'email
-  const emailRegExp = new RegExp(
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-  );
-
-  //Récuperation de la balise Small
-  let small = inputEmail.nextElementSibling;
-
-  //On teste l'expression regulière
-  if (emailRegExp.test(inputEmail.value)) {
-    small.innerHTML = "E-mail Valide";
-    small.classList.remove("text-danger");
-    small.classList.add("text-success");
-    return true;
-  } else {
-    small.innerHTML = "E-mail Invalide";
-    small.classList.remove("text-success");
-    small.classList.add("text-danger");
-    return false;
-  }
-};
-
 //----------------------------Formulaire---------------------------------------
 //Permet de séléctionée tous les inputs du form
 const inputs = document.querySelectorAll('input[type="text"]');
@@ -191,11 +107,11 @@ const inputs = document.querySelectorAll('input[type="text"]');
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (
-    validFirst(form.firstName) &&
-    validLast(form.lastName) &&
-    validAddress(form.address) &&
-    validCity(form.city) &&
-    validEmail(form.email)
+    checkInputRegex("#firstName", regexName, "Prénom") &&
+    checkInputRegex("#lastName", regexName, "Nom") &&
+    checkInputRegex("#address", regexAddress, "Adresse") &&
+    checkInputRegex("#city", regexAddress, "Ville") &&
+    checkInputRegex("#email", regexMail, "Email")
   ) {
     const cart = JSON.parse(localStorage.getItem("cart"));
     // Object orientée
